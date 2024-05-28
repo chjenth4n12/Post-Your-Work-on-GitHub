@@ -10,3 +10,5 @@ IDE: PyCharm
 
 # Library:
 pandas
+numpy
+matplotlib
