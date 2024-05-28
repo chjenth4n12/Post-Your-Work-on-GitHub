@@ -7,3 +7,6 @@ In this project, we use python 3 and pandas
 # System Env:
 OS: MacOS
 IDE: PyCharm
+
+# Library:
+pandas
