@@ -2,9 +2,10 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+CITY_DATA = {'chicago': 'chicago.csv',
+             'new york city': 'new_york_city.csv',
+             'washington': 'washington.csv'}
+
 
 def get_filters():
     """
@@ -58,8 +59,8 @@ def load_data(city, month, day):
     
     # Filter with month
     if month != 'all':
-        monthList = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = monthList.index(month) + 1
+        month_list = ['january', 'february', 'march', 'april', 'may', 'june']
+        month = month_list.index(month) + 1
         df = df[df['month'] == month]
     
     # Get day of week by Start Time and create new column day_of_week
@@ -119,12 +120,12 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    totalTravelTime = df['Trip Duration'].sum() / 3600.0
-    print("Display total travel time: ", totalTravelTime)
+    total_travel_time = df['Trip Duration'].sum() / 3600.0
+    print("Display total travel time: ", total_travel_time)
 
     # TO DO: display mean travel time
-    meanTravelTime = df['Trip Duration'].mean() / 3600.0
-    print("Display mean travel time: ", meanTravelTime)
+    mean_travel_time = df['Trip Duration'].mean() / 3600.0
+    print("Display mean travel time: ", mean_travel_time)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -145,14 +146,15 @@ def user_stats(df, city):
         
     # TO DO: Display earliest, most recent, and most common year of birth
         earliest = int(df['Birth Year'].min())
-        mostRecent = int(df['Birth Year'].max())
-        mostCommonYearOfBirth = int(df['Birth Year'].mode()[0])
+        most_recent = int(df['Birth Year'].max())
+        most_common_year_of_birth = int(df['Birth Year'].mode()[0])
         print("Earliest: ", earliest)
-        print("Most recent: ", mostRecent)
-        print("Most common year of birth: ", mostCommonYearOfBirth)
+        print("Most recent: ", most_recent)
+        print("Most common year of birth: ", most_common_year_of_birth)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
 
 def data_display(df):
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
@@ -161,6 +163,7 @@ def data_display(df):
         print(df.iloc[start_loc:start_loc+5])
         start_loc += 5
         view_data = input("Do you wish to continue?: ").lower()
+
 
 def main():
     while True:
@@ -180,3 +183,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
